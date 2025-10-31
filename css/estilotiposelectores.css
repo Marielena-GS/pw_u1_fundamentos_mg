@@ -1,0 +1,37 @@
+/*2. Selector por CLASE*/
+.titulos {
+    color: red;
+    font-size: 30px;
+    background-color: blue;
+}
+
+/*3. Selector por ID*/
+#id_titulo {
+    color: black;
+    background: red;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/*4. Selector por Pseudo Clase (eventos)*/
+
+i:hover {
+    color: blue;
+    font-size: 50px;
+}
+
+input:focus {
+    border-color: blue;
+    background: red;
+}
+
+/*5. Selector por atributo*/
+[id] {
+    color: brown;
+    font-size: 40px;
+}
+
+
+img[alt="No2"] {
+    width: 80px;
+    height: 50px;
+}
