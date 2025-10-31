@@ -30,8 +30,12 @@ input:focus {
     font-size: 40px;
 }
 
-
-img[alt="No2"] {
+img[alt*="uce"] {
     width: 80px;
     height: 50px;
+}
+
+/*6. Universal*/
+*{
+    /*declaraciones*/
 }
