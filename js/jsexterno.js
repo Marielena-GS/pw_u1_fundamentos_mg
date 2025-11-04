@@ -4,7 +4,7 @@ function cambiarColor(id_elemento, color) {
 }
 
 function agregarElemento(idelementopadre, html) {
-    document.getElementById(idelementopadre).innerHTML = html;
+    document.getElementById(idelementopadre).innerHTML += html;
 }
 function construirH1() {
     return '<h1 id="id_calculadora">Calculador</h1>';
@@ -26,25 +26,29 @@ function mostrarElemento(idElemento) {
 }
 
 function evaluarOperacion(tipo) {
-    let num1 = parseFloat(document.getElementById('id_n1').value);
-    let num2 = parseFloat(document.getElementById('id_n2').value);
+    let num1 = parseFloat(document.getElementById('id_n_1').value);
+    let num2 = parseFloat(document.getElementById('id_n_2').value);
 
     let resultado = 0;
-
+    let idlabel = "";
 
     if (tipo === '+') {
-        resultado = sumar(num1, num2)
+        resultado = sumar(num1, num2);
+        idlabel = "id_resultadosum";
     }
-    if (tipo === '-') {
-        restar()
+    else if (tipo === '-') {
+        resultado = restar(num1, num2);
+        idlabel = "id_resultadores";
     }
-    if (tipo === '*') {
-        multiplicar()
+    else if (tipo === '*') {
+        resultado = multiplicar(num1, num2);
+        idlabel = "id_resultadomul";
     }
-    if (tipo === '/') {
-        dividir()
+    else if (tipo === '/') {
+        resultado = dividir(num1, num2);
+        idlabel = "id_resultadodiv";
     }
-    document.getElementById('id_resultado').innerText = resultado;
+    document.getElementById(idlabel).innerText = "Resultado: " + resultado;
 }
 
 function sumar(num1, num2) {
@@ -60,5 +64,5 @@ function multiplicar(num1, num2) {
 }
 
 function dividir(num1, num2) {
-    return num1 / num2;
+    return num2 !== 0 ? num1 / num2: "Error al Dividir por 0";
 }
