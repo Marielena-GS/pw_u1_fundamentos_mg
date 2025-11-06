@@ -153,12 +153,34 @@ function fundamentosJS(){
     const profesor = { 
         nombre: 'Edison', 
         apellido: 'Cayambe',
-        edad: 36,
+        edad: 35,
         ecuatoriano: true,
         genero: 'M',
         ciudad: 'Quito'
     }
 
     console.log(profesor);
+
+    console.log(profesor.nombre); //get
+
+    profesor.apellido= 'Teran'; //set
+    console.log(profesor);
+
+    if(profesor.ciudad === 'Quito'){
+        console.log('Es Quiteño');
+    }
+
+    if(profesor.edad !== 36){
+        console.log('Es diferente de 36');
+    }else{
+        console.log('Es 36');
+    }
+
+    for(let clave in profesor){
+        console.log(clave);
+        console.log(profesor[clave]);
+    }
+
+
 
 }
