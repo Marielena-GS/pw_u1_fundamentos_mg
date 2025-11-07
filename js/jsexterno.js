@@ -64,10 +64,10 @@ function multiplicar(num1, num2) {
 }
 
 function dividir(num1, num2) {
-    return num2 !== 0 ? num1 / num2: "Error al Dividir por 0";
+    return num2 !== 0 ? num1 / num2 : "Error al Dividir por 0";
 }
 
-function fundamentosJS(){
+function fundamentosJS() {
     /**Tipos de variables*/
     var nombre = "Edison"; //antigua, ya es considerada obsoleta
 
@@ -106,8 +106,8 @@ function fundamentosJS(){
     console.log(arreglosDiasSemana[6]);
     console.log(arreglosDiasSemana[7]);
 
-    const numerosPares = [2,4,6,8];
-    const numerosImpares = [1,3,5,7,9];
+    const numerosPares = [2, 4, 6, 8];
+    const numerosImpares = [1, 3, 5, 7, 9];
 
     const numerosTotales = numerosImpares.concat(numerosPares);
     console.log(numerosTotales);
@@ -115,16 +115,16 @@ function fundamentosJS(){
     /*Sentencias de control */
 
     let edad = 19;
-    if(edad >= 18){
+    if (edad >= 18) {
         console.log('Es mayor de edad');
 
-    }else{
+    } else {
         console.log('Es menor de Edad');
     }
 
     let dia = 'Lunes';
 
-    switch(dia){
+    switch (dia) {
 
         case 'Lunes':
             console.log('Es Lunes');
@@ -135,23 +135,23 @@ function fundamentosJS(){
             break;
 
         default:
-                console.log('No es ninguno de esos días');
+            console.log('No es ninguno de esos días');
     }
 
-    for(let i = 0; i<= 5; i++){
+    for (let i = 0; i <= 5; i++) {
         console.log(i);
     }
 
     const frutas = ['manzana', 'sandía', 'papaya', 'naranja'];
 
-    for(let fruta of frutas){
+    for (let fruta of frutas) {
         console.log(fruta);
     }
-    
+
     /*Manejo de objetos*/
 
-    const profesor = { 
-        nombre: 'Edison', 
+    const profesor = {
+        nombre: 'Edison',
         apellido: 'Cayambe',
         edad: 35,
         ecuatoriano: true,
@@ -163,24 +163,130 @@ function fundamentosJS(){
 
     console.log(profesor.nombre); //get
 
-    profesor.apellido= 'Teran'; //set
+    profesor.apellido = 'Teran'; //set
     console.log(profesor);
 
-    if(profesor.ciudad === 'Quito'){
+    if (profesor.ciudad === 'Quito') {
         console.log('Es Quiteño');
     }
 
-    if(profesor.edad !== 36){
+    if (profesor.edad !== 36) {
         console.log('Es diferente de 36');
-    }else{
+    } else {
         console.log('Es 36');
     }
 
-    for(let clave in profesor){
+    for (let clave in profesor) {
         console.log(clave);
         console.log(profesor[clave]);
     }
 
+    //aregglos de objetos
+    const e1 = {
+        nombre: 'Edison',
+        apellido: 'Cayambe',
+        edad: 35,
+        ecuatoriano: true,
+        genero: 'M',
+        ciudad: 'Quito'
+    }
 
+    const e2 = {
+        nombre: 'Edison',
+        apellido: 'Cayambe',
+        edad: 35,
+        ecuatoriano: true,
+        genero: 'M',
+        ciudad: 'Quito'
+    }
 
+    const arregloEstudiantes = [e1, e2, {
+
+        nombre: 'Edison 3',
+        apellido: 'Cayambe',
+        edad: 35,
+        ecuatoriano: true,
+        genero: 'M',
+        ciudad: 'Quito'
+    }
+    ];
+
+    console.log(arregloEstudiantes[0]);
+    console.log(arregloEstudiantes[2]);
+
+    /*Desestructuración*/
+    //Arreglos
+
+    const ar1 = [1, 2, 3, 4, 5, 6, 7];
+    const [p1, p2, p3, p4, p5] = ar1;
+
+    console.log(p1);
+    console.log(p4);
+
+    const [primero, , , , , , ultimo] = ar1;
+    console.log(primero);
+    console.log(ultimo);
+
+    const [pos1, pos2] = [1, 2, 3, 4, 5, 6, 7];
+    imprime(ar1);
+
+    //Objetos
+     const e3 = {
+        nombre: 'Edison',
+        apellido: 'Cayambe',
+        edad: 35,
+        ecuatoriano: true,
+        genero: 'M',
+        ciudad: 'Quito'
+    }
+
+    const {nombre: n1, ciudad} = e3;
+    console.log(n1);
+    console.log(ciudad);
+
+    const {nombre: n, ciudad: ciu} ={
+        nombre: 'Edison',
+        apellido: 'Cayambe',
+        edad: 35,
+        ecuatoriano: true,
+        genero: 'M',
+        ciudad: 'Quito'
+    };
+    console.log(n);
+    console.log(ciu);
+
+    //atributos tipo objetos
+    const e4 = {
+        nombre: 'Edison',
+        apellido: 'Cayambe',
+        edad: 35,
+        ecuatoriano: true,
+        genero: 'M',
+        ciudad: 'Quito',
+        direccion: {
+            calle: 'Av. Américaa',
+            barrio: 'La Gasca',
+            numeracion: '2343'
+        }
+    }
+    console.log(e4.direccion);
+    console.log(e4.direccion.barrio);
+
+    const {edad: ed, direccion} = e4;
+    console.log(ed);
+    console.log(direccion);
+    const {calle} = direccion;
+    console.log(calle);
+
+    const {direccion:{barrio, calle: c1, numeracion}} = e4;
+    console.log(barrio);
+    console.log(c1);
+    console.log(numeracion);
+}
+
+/*Desestructuración*/ //Arreglos
+function imprime([a, b, c]) {
+    console.log(a);
+    console.log(b);
+    console.log(c);
 }
