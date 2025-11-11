@@ -23,11 +23,17 @@ function calcularResultado(){
             let resultado = Function('"Use strict"; return ('+ expresion + ')')();
             display.innerText = resultado;
         }else{
-            display.innerText = "Error";
+             display.innerText = "Error";
+            setTimeout(()=>{
+                display.innerText = "";
+            },1000)
         }
     }
     catch (error){
-        display.innerText = "Error";
+         display.innerText = "Error";
+            setTimeout(()=>{
+                display.innerText = "";
+            },1000)
     }
 }
 
