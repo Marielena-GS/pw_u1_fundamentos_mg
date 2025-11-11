@@ -13,28 +13,21 @@ function clearDisplay(){
     elemento.innerText = "";
 }
 
-function calcularResultado(){
+function calcularResultado() {
     let display = document.getElementById('display');
     let expresion = display.innerText.replace(/\s+/g, '');
+    expresion = expresion.replace(/(\d+(\.\d+)?)%/g, '($1/100)');
 
-    try{
-
-        if(/^[0-9+\-*/%.()]+$/.test(expresion)){
-            let resultado = Function('"Use strict"; return ('+ expresion + ')')();
+    try {
+        if (/^[0-9+\-*/().]+$/.test(expresion)) {
+            let resultado = Function('"use strict"; return (' + expresion + ')')();
             display.innerText = resultado;
-        }else{
-             display.innerText = "Error";
-            setTimeout(()=>{
-                display.innerText = "";
-            },1000)
+        } else {
+            mostrarError(display);
         }
-    }
-    catch (error){
-         display.innerText = "Error";
-            setTimeout(()=>{
-                display.innerText = "";
-            },1000)
-    }
+    } catch (error) {
+        mostrarError(display);
+    }
 }
 
 function borrarUltimo(){
