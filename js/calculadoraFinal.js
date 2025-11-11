@@ -8,28 +8,31 @@ function mostrarDisplay(valor){
     elemento.innerText = elemento.innerText + valor;
 }
 
-function sumar(num1, num2){
-
-}
-
-function restar(num1, num2){
-
-}
-
-function multiplicar(num1, num2){
-
-}
-
-function dividir(num1, num2){
-
-}
-
-function porcentaje(num1, num2){
-
-}
-
 function clearDisplay(){
     let elemento = document.getElementById('display');
     elemento.innerText = "";
+}
+
+function calcularResultado(){
+    let display = document.getElementById('display');
+    let expresion = display.innerText.replace(/\s+/g, '');
+
+    try{
+
+        if(/^[0-9+\-*/%.()]+$/.test(expresion)){
+            let resultado = Function('"Use strict"; return ('+ expresion + ')')();
+            display.innerText = resultado;
+        }else{
+            display.innerText = "Error";
+        }
+    }
+    catch (error){
+        display.innerText = "Error";
+    }
+}
+
+function borrarUltimo(){
+    let display = document.getElementById('display');
+    display.innerText = display.innerText.slice(0, -1);
 }
 
