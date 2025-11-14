@@ -16,10 +16,22 @@ function validarCampos() {
         return;
     }
 
+    if(!validarNombre(nombre)){
+        mostrarMensaje('El nombre debe iniciar con mayúscula y tener solo letras');
+        mostrarAsterisco('id_error_nombre');
+        return;
+    }
+
     let apellido = document.getElementById("id_apellido").value;
      
     if(apellido === "" || apellido === null){
         mostrarMensaje('Apellido necesario');
+        mostrarAsterisco('id_error_apellido');
+        return;
+    }
+
+    if (!validarApellido(apellido)) {
+        mostrarMensaje('El apellido debe iniciar con mayúscula y tener solo letras');
         mostrarAsterisco('id_error_apellido');
         return;
     }
@@ -54,6 +66,14 @@ function validarCampos() {
         mostrarAsterisco('id_error_password');
         return;
     }
+
+    if (!validarPassword(password)) {
+        mostrarMensaje('La contraseña debe tener al menos: 1 mayúscula, 1 número y 1 símbolo');
+        mostrarAsterisco('id_error_password');
+        return;
+    }
+
+    mostrarMensaje("Formulario válido ✔");
 }
 
 function mostrarMensaje(msg) {
@@ -78,5 +98,20 @@ function limpiarMensaje() {
 function validarEmail(email) {
     const patron = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return patron.test(email);
+}
+
+function validarNombre(nombre){
+    const patron = /^[A-ZÁÉÍÓÚÜÑ][a-záéíóúüñ]+$/;
+    return patron.test(nombre);
+}
+
+function validarApellido(apellido){
+    const patron = /^[A-ZÁÉÍÓÚÜÑ][a-záéíóúüñ]+$/;
+    return patron.test(apellido);
+}
+
+function validarPassword(password) {
+    const patron = /^(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).+$/;
+    return patron.test(password);
 }
 
