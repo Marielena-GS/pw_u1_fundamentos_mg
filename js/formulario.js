@@ -1,4 +1,5 @@
 function guardar() {
+    limpiarMensaje();
     validarCampos();
 }
 
@@ -6,7 +7,7 @@ function validarCampos() {
     let nombre = document.getElementById("id_nombre").value;
 
     //no se debe hacer X
-    if(nombre === ""){
+    if(nombre === "" || nombre === null){
         //el uso de alert introduce una vulnerabilidad
         //esto es incorrecto
         /*alert('Campo incompleto');*/
@@ -17,7 +18,7 @@ function validarCampos() {
 
     let apellido = document.getElementById("id_apellido").value;
      
-    if(apellido === ""){
+    if(apellido === "" || apellido === null){
         mostrarMensaje('Apellido necesario');
         mostrarAsterisco('id_error_apellido');
         return;
@@ -25,27 +26,30 @@ function validarCampos() {
 
     let fecha = document.getElementById("id_fecha").value;
      
-    if(fecha === ""){
+    if(fecha === "" || fecha === null){
         mostrarMensaje('Fecha necesaria');
         mostrarAsterisco('id_error_fecha');
         return;
     }
 
       let email = document.getElementById("id_email").value;
-                    if(!validarEmail(email)){
-                            mostrarMensaje("Email Incorrecto");
-        mostrarAsterisco('id_error_email');
-                }
-            if(email===""){
- 
-        mostrarMensaje("Campo Incompleto");
+      
+       if(email==="" || email === null){
+        mostrarMensaje("Email Necesario");
         mostrarAsterisco('id_error_email');
         return;
-    }
+       }
 
+      if(!validarEmail(email)){       
+        
+        mostrarMensaje("Email Incorrecto");
+        mostrarAsterisco('id_error_email');
+        return;
+        }
+        
     let password = document.getElementById("id_password").value;
      
-    if(password === ""){
+    if(password === "" || password === null){
         mostrarMensaje('Password necesaria');
         mostrarAsterisco('id_error_password');
         return;
