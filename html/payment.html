@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <link rel="stylesheet" href="../css/payment.css">
+    <script src="../js/payment.js"></script>
+</head>
+
+<body>
+<div class="container">
+
+    <header></header>
+
+    <div class="payment">
+
+        <div class="left">
+            <img src="../img/tarjeta.png" alt="Tarjeta" class="tarjeta-img">
+        </div>
+
+        <section class="right">
+
+                <h2>Payment Details</h2>
+
+                <div id="id_msg_error" class="msg_error" style="display:none;"></div>
+
+                <p type="Cardholder Name">
+                    <input id="id_card_holder" type="text">
+                    <span id="id_error_card_holder" class="error_asterisco"></span>
+                </p>
+
+                <p type="Card Number">
+                    <input id="id_number" type="tel">
+                    <span id="id_error_number" class="error_asterisco"></span>
+                </p>
+
+                <p type="Exp Date">
+                    <input type="text" id="exp" placeholder="MM/YY" maxlength="5" pattern="(0[1-9]|1[0-2])\/\d{2}" required>
+                    <span id="id_error_fecha" class="error_asterisco"></span>
+                </p>
+
+                <p type="CVV">
+                    <input id="id_cvv" type="password">
+                    <span id="id_error_cvv" class="error_asterisco"></span>
+                </p>
+
+                <div class="right">
+                    <button type="button" onclick="guardar()">Confirm</button>
+                </div>
+
+            </form>
+        </section>
+
+    </div>
+
+    <footer></footer>
+
+</div>
+</body>
+</html>
